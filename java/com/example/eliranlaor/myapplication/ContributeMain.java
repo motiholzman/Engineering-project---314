@@ -11,8 +11,14 @@ import android.widget.TextView;
 public class ContributeMain extends AppCompatActivity {
 
 
-    Typeface tf1;
-    TextView title;
+    private Typeface tf1;
+    private TextView title;
+    private HttpGetTask task;
+    static final private String TITLE_FONT_NAME = "gasalt_black.ttf";
+    static final private String QUESTION_BY_TOPIC_URL = "/app_server/getQuestionByTopic";
+    static final private String SPORT_URL = "/Sport";
+    static final private String GENERAL_URL = "/General";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +28,7 @@ public class ContributeMain extends AppCompatActivity {
 
         /* defining a font to the Title */
         title = (TextView) findViewById(R.id.categoryTitle);
-        tf1 = Typeface.createFromAsset(getAssets() , "gasalt_black.ttf");
+        tf1 = Typeface.createFromAsset(getAssets() , ContributeMain.TITLE_FONT_NAME);
         title.setTypeface(tf1);
 
         /* defining a font to the Title  - done*/
@@ -46,11 +52,23 @@ public class ContributeMain extends AppCompatActivity {
         catA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ContributeMain.this, ContributeMainGame.class);
-                intent.putExtra("topic", "Sports");
-                startActivity(intent);
+                task = new HttpGetTask(ContributeMain.this);
+                task.execute(HttpPostTask.BASE_URL + QUESTION_BY_TOPIC_URL + SPORT_URL);
             }
         });
-        /*et catA button to home screen - done*/
+        /*set catA button to home screen - done*/
+
+
+        /*set catB button to home screen*/
+        Button catB = (Button) findViewById(R.id.catB);
+
+        catB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                task = new HttpGetTask(ContributeMain.this);
+                task.execute(HttpPostTask.BASE_URL + QUESTION_BY_TOPIC_URL+ GENERAL_URL);
+            }
+        });
+        /*set catB button to home screen - done*/
     }
 }
