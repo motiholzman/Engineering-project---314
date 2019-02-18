@@ -15,4 +15,8 @@ first packet is on air.
 get and post requests to the server are alive and working.
 we can now receive traffic from the server and vice versa.
 
+18/2/2019
+git ignore file was added
+top trending activity + swipe buttons added
+
 
