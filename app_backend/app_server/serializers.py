@@ -4,6 +4,9 @@ from .models import Question, Answer
 
 
 class QuestionSerializer(serializers.ModelSerializer):
+    """
+    serializer class for Question object
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
@@ -13,6 +16,9 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class AnswerSerializer(serializers.ModelSerializer):
+    """
+    serializer class for Answer object
+    """
     # owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
@@ -22,6 +28,9 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """
+    serializer class for User object
+    """
     #questions = serializers.PrimaryKeyRelatedField(many=True, queryset=Question.objects.all())
 
     class Meta:

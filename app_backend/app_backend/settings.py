@@ -25,7 +25,8 @@ SECRET_KEY = '$2-z1$0%9!sau1kb@%828g*-%o#+c69_+5h)wp%bph@)+h9fc6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.0.2.2', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['10.0.2.2', 'localhost', '127.0.0.1', '132.65.39.235']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'app_server',
+    'google_auth_oauthlib',
+    'google',
+    'google_auth_httplib2',
 ]
 
 MIDDLEWARE = [
