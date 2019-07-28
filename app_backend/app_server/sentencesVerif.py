@@ -12,6 +12,8 @@ from nltk.corpus import stopwords
 stop_words = stopwords.words('english')
 trained_model = []
 
+#  download trained model here:
+# https://github.com/mmihaltz/word2vec-GoogleNews-vectors
 
 def wordMoversDistance(model, document1, document2):
     """
